@@ -1,0 +1,10 @@
+{
+  "orderId": "ORD-2024-001",
+  "amount": 150.00,
+  "currency": "USD",
+  "payer": "John Doe",
+  "description": "Payment received: $150.00 from John Doe for order #ORD-2024-001 - Office supplies purchase",
+  "timestamp": "2024-10-08T10:30:00Z",
+  "source": "slack"
+}
+

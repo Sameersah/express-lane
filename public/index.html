@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Fast Lane - Payment Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-bold text-gray-800 mb-2">
+                💸 Expense Fast Lane
+            </h1>
+            <p class="text-xl text-gray-600">
+                Automated Payment Processing with CodeGlide MCP
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+                Slack → Payment → Jira → Notion → Confirmation
+            </p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Left Column: Input -->
+            <div class="space-y-6">
+                <!-- Sample Receipts -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                        📋 Quick Demo
+                    </h2>
+                    <p class="text-gray-600 mb-4">Choose a sample payment to process:</p>
+                    <div id="samples-container" class="space-y-3">
+                        <!-- Samples will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Custom Receipt -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                        ✏️ Custom Payment
+                    </h2>
+                    <form id="payment-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                Order ID
+                            </label>
+                            <input type="text" id="orderId" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="ORD-2024-001">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                Amount (USD)
+                            </label>
+                            <input type="number" id="amount" required step="0.01"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="150.00">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                Payer Name
+                            </label>
+                            <input type="text" id="payer" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                Description
+                            </label>
+                            <textarea id="description" rows="3"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Payment details..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 transform hover:scale-105">
+                            🚀 Process Payment
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Column: Results -->
+            <div class="space-y-6">
+                <!-- Progress -->
+                <div id="progress-container" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                        ⚡ Processing...
+                    </h2>
+                    <div id="progress-steps" class="space-y-3">
+                        <!-- Progress steps will appear here -->
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="results-container" class="bg-white rounded-lg shadow-lg p-6 hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                        ✅ Results
+                    </h2>
+                    <div id="results-content">
+                        <!-- Results will appear here -->
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                        ℹ️ How It Works
+                    </h2>
+                    <ol class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="font-bold text-blue-600 mr-2">1.</span>
+                            <span>Choose a sample payment or enter custom data</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-blue-600 mr-2">2.</span>
+                            <span>System verifies payment (mock mode)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-blue-600 mr-2">3.</span>
+                            <span>Creates Jira task automatically</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-blue-600 mr-2">4.</span>
+                            <span>Logs entry in Notion database</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-blue-600 mr-2">5.</span>
+                            <span>Sends Slack confirmation message</span>
+                        </li>
+                    </ol>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-800">
+                            🎭 <strong>Mock Mode:</strong> All integrations are simulated for demo purposes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

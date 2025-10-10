@@ -1,0 +1,31 @@
+{
+  "servers": {
+    "slack": {
+      "transport": "stdio",
+      "command": "node",
+      "args": ["./slack_web/bin/slack-mcp.js"],
+      "env": {
+        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}"
+      }
+    },
+    "notion": {
+      "transport": "stdio",
+      "command": "node",
+      "args": ["./Notion/bin/notion-mcp.js"],
+      "env": {
+        "NOTION_TOKEN": "${NOTION_TOKEN}"
+      }
+    },
+    "jira": {
+      "transport": "stdio",
+      "command": "node",
+      "args": ["./Jira_Integration_API/bin/jira-mcp.js"],
+      "env": {
+        "JIRA_BASE_URL": "${JIRA_BASE_URL}",
+        "JIRA_EMAIL": "${JIRA_EMAIL}",
+        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+      }
+    }
+  }
+}
+

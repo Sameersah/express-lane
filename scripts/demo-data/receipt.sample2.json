@@ -1,0 +1,10 @@
+{
+  "orderId": "ORD-2024-002",
+  "amount": 99.99,
+  "currency": "USD",
+  "payer": "Jane Smith",
+  "description": "Received $99.99 from Jane Smith, order ORD-2024-002 - Software subscription renewal",
+  "timestamp": "2024-10-08T14:15:00Z",
+  "source": "slack"
+}
+

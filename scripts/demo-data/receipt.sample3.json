@@ -1,0 +1,10 @@
+{
+  "orderId": "ORD-2024-003",
+  "amount": 275.50,
+  "currency": "USD",
+  "payer": "Alice Johnson",
+  "description": "$275.50 payment from Alice Johnson for order #ORD-2024-003 - Marketing campaign expenses",
+  "timestamp": "2024-10-08T16:45:00Z",
+  "source": "slack"
+}
+

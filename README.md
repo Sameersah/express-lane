@@ -1,6 +1,6 @@
 # 💸 Expense → Revenue Fast Lane MVP
 
-**Project winning team**: Qualcomm Local AI Hackathon - **Contrinutor**: Shruti Goyal (Github:[ @shrutiebony](https://github.com/shrutiebony))
+**Hackathon winning project**: Qualcomm Local AI Hackathon - **contributor**: Shruti Goyal (Github:[ @shrutiebony](https://github.com/shrutiebony))
 
 A 20-minute demo MVP that orchestrates payment processing workflows using **CodeGlide MCP servers**. This project connects Slack → Payment Verification → Jira → Notion → Slack confirmation in a single automated flow.
 
